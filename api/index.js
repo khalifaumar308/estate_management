@@ -1,4 +1,16 @@
-import express from 'express'
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv'
+dotenv.config();
+
+mongoose
+  .connect(process.env.CONNECTION_STRING)
+  .then(() =>{
+    console.log('Connected succc')
+  })
+  .catch((err) => {
+    console.log(err)
+  });
 
 const app = express();
 
